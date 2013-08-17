@@ -7,7 +7,6 @@
     vertical-align: baseline;
     
 }
-
 a {
     background:none;
     text-decoration: none;
@@ -16,7 +15,6 @@ a {
 ol, ul {
     list-style: none;
 }
-
 body{
     background:#F4F1EC;
     font-size:13px;
@@ -59,14 +57,14 @@ html{
 
 #player_box{
     background: url("../img/player_wrapp.png") no-repeat scroll 0 0 / 100% auto transparent;
-    height: 140px;
-    /*margin: 50px auto 25px;*/
+    height: 135px;
+    /*margin: 30px auto 0;*/
     position: relative;
     width: 420px;
 }
 
 #player_box #top_panel{
-    height: 40px;
+    height: 36px;
     margin: 0 auto;
     width: 380px;
 }
@@ -165,7 +163,7 @@ html{
 #player_box #progress_bar #time_btns #btns_wrapp a{
     color: #AABAC9;
     font-family: arial;
-    font-size: 9pt;
+    font-size: 8pt;
     font-weight: 600;
     padding-left: 10px;
     text-decoration: none;
@@ -330,6 +328,98 @@ html{
     height: 20px;
     width: 32px;
     float: right;
+}
+
+/*==== PlayList style ====*/
+
+#playlist_box{
+    /*background: url("../img/player_wrapp.png") no-repeat scroll 0 0 / 100% 100% transparent;*/
+    background:url("../img/player_wrapp.png") no-repeat center;
+    background-size:100% 400px;
+    height: 400px;
+    margin:  0 auto;
+    position: relative;
+    width: 420px;
+}
+
+#playlist_box #playlist_panel{
+    height: 390px;
+    margin: 0 auto;
+    padding-top: 5px;
+    width: 380px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#playlist_box #playlist_panel li{
+    cursor: pointer;
+    height: 25px;
+    margin-left: 1px;
+    width: 377px;
+}
+
+#playlist_box #playlist_panel li:hover ,
+#playlist_box #playlist_panel li.checked{
+    background: none repeat scroll 0 0 #4E5881;
+}
+
+#playlist_box #playlist_panel li .track_number{
+    color: #C5E2F7;
+    float: left;
+    font-family: "Digital-7 Mono";
+    font-size: 12pt;
+    margin: 4px 5px 5px;
+    text-align: center;
+    width: 15px; 
+}
+
+#playlist_box #playlist_panel li .track_name{
+    float: left;
+    margin: 5px;
+    overflow: hidden;
+    width: 282px;
+}
+
+#playlist_box #playlist_panel li .track_name span{
+    color: #AABAC9;
+    display: block;
+    font-family: arial;
+    font-size: 12px;
+    line-height: 1;
+    width: 10000px;
+}
+
+#playlist_box #playlist_panel li .track_time{
+    color: #C5E2F7;
+    float: left;
+    font-family: "Digital-7 Mono";
+    font-size: 12pt;
+    margin: 4px 5px 5px;
+    text-align: center;
+    width: 50px;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(91, 91, 116, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255,0,0,0.4); 
 }
 
 /*=========Clear style=========*/
