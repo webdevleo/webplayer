@@ -36,7 +36,7 @@ html{
     left: 0;
 }
 
-.no-darg{
+.no-drag{
     position: relative;
     z-index: 10;
 }
@@ -145,7 +145,7 @@ html{
 #player_box #progress_bar #time_btns{
     float: left;
     height: 100%;
-    width: 125px;
+    width: 110px;
 }
 
 #player_box #progress_bar #time_btns #time{
@@ -154,7 +154,7 @@ html{
     font-size: 35pt;
     line-height: 0.7;
     padding: 3px;
-    text-indent: 10px;
+    text-indent: 1px;
 }
 
 #player_box #progress_bar #time_btns #btns_wrapp{}
@@ -164,7 +164,7 @@ html{
     font-family: arial;
     font-size: 9pt;
     font-weight: 600;
-    padding-left: 17px;
+    padding-left: 10px;
     text-decoration: none;
 }
 
@@ -175,10 +175,13 @@ html{
 #player_box #progress_bar #name_progress{
     float: left;
     height: 100%;
-    width: 255px;
+    width: 270px;
 }
 
-#player_box #progress_bar #name_progress #name_wrapp{}
+#player_box #progress_bar #name_progress #name_wrapp{
+    float: left;
+    position: relative;
+}
 
 #player_box #progress_bar #name_progress #name_wrapp .sep_left{
     background: url("../img/sep_left.png") no-repeat scroll -7px 0 transparent;
@@ -200,7 +203,7 @@ html{
     float: left;
     margin: 5px;
     overflow: hidden;
-    width: 228px;
+    width: 244px;
 }
 
 #player_box #progress_bar #name_progress #name_wrapp span{
@@ -212,7 +215,24 @@ html{
     width: 500px;
 }
 
-#player_box #progress_bar #name_progress #progress_line{}
+#player_box #progress_bar #name_progress #progress_line{
+    background: url("../img/progress_bar_line.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 12px;
+    margin-left: 2px;
+    margin-top: 6px;
+    position: relative;
+    width: 268px;
+}
+#player_box #progress_bar #name_progress #progress_line #progress_pointer{
+    background: url("../img/progress_pointer.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 18px;
+    left: 5px;
+    position: absolute;
+    top: -3px;
+    width: 9px;
+}
 
 #player_box #play_buttons{
     height: 40px;
