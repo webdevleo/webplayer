@@ -23,12 +23,22 @@ body{
     line-height: 100%;
 }
 html{
-    -webkit-app-region: drag;
     -webkit-user-select: none;
     height: 100%;
 }
+
+.drag-overlay{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width:100%;
+    top: 0;
+    left: 0;
+}
+
 .no-darg{
-    -webkit-app-region: no-drag;
+    position: relative;
+    z-index: 10;
 }
 
 /*----------------------Font Face---------------------------*/
