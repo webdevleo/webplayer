@@ -1,5 +1,5 @@
 (function(){
-	window.resizeTo(420, 190); // Fix resize with tool bar
+	window.resizeTo(420, 300); // Fix resize with tool bar
 
 	var gui = require('nw.gui'), // Include GUI api
 		win = gui.Window.get(), // Get window object
@@ -30,5 +30,22 @@
 	** Close Application **
 	***********************/
 	$('#close_btn').on('click',function(){ win.close();	});
+
+	/******************************
+	** Main Player Functionality **
+	*******************************/
+
+	// var fs = require('fs');
+	// var file = fs.readFile("/www/multimedia/music/Sting - Discografi [ studiinie albomi 1985 - 2010 ]/2010  Symphonicities/02.Englishman In New York.mp3", function(err, data) {
+	// 	if (err) throw err;
+
+	// 	console.log(data);
+	// });
+
+	// var file = readFile("/www/multimedia/music/Sting - Discografi [ studiinie albomi 1985 - 2010 ]/2010  Symphonicities/02.Englishman In New York.mp3");
+	var player = AV.Player.fromURL("/www/multimedia/music/Sting - Discografi [ studiinie albomi 1985 - 2010 ]/2010  Symphonicities/02.Englishman In New York.mp3");
+	console.log(player);
+	// var player = AV.Player.fromFile(data);
+	player.play();
 
 })();
