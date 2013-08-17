@@ -46,9 +46,45 @@ body{
     width: 420px;
 }
 
-#player_box #volume{
+#player_box #top_panel{
     height: 40px;
+    margin: 0 auto;
+    width: 380px;
 }
+
+#player_box #top_panel #volume{
+    float: left;
+    height: 100%;
+    width: 150px;
+}
+
+#player_box #top_panel #screen_btn{
+    float: right;
+    height: 100%;
+    width: 100px;
+}
+
+#player_box #top_panel #screen_btn a{
+    display: block;
+    float: left;
+    height: 20px;
+    margin: 10px 5px 10px 0;
+    width: 27px;
+}
+
+#player_box #top_panel #screen_btn #hide_btn{
+    background: url("../img/hide_btn.png") no-repeat scroll 0 0 transparent;
+}
+
+#player_box #top_panel #screen_btn #open_btn{
+    background: url("../img/open_btn.png") no-repeat scroll 0 0 transparent;
+}
+
+#player_box #top_panel #screen_btn #close_btn{
+    background: url("../img/close_btn.png") no-repeat scroll 0 0 transparent;
+}
+
+
 
 #player_box #progress_bar{
     background: url("../img/progress_bar_bg.png") repeat-x scroll 0 0 transparent;
