@@ -8,9 +8,15 @@
 	var path = require('path'),
 		homeURL = path.dirname(process.execPath) + path.sep; // Home dir path
 
+	$('js').on('click',function(e){ e.preventDefault(); }); // PreventDefault
+
 	/****************************
 	** Minimize window to tray **
 	*****************************/
+	$('#hide_btn').on('click', function(e){
+		win.minimize();
+	});
+
 	win.on('minimize', function() {
 		if(win !== null){
 			win = null;
@@ -23,7 +29,7 @@
 			tray.on('click', function() { // Show window and remove tray when clicked
 				win = gui.Window.get();
 				win.show();
-				// win.restore();
+				win.restore();
 
 				this.remove();
 				tray = null;

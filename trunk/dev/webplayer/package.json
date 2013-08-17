@@ -6,15 +6,16 @@
   "window": {
     "title": "WebPlayer",
     "toolbar": true,
-    "frame": true,
+    "frame": false,
     "width": 420,
-    "height": 600,
+    "height": 140,
     "position": null,
     "min_width": 420,
-    "min_height": 200,
+    "min_height": 140,
     "max_width": 420,
     "max_height": 600,
-    "resizable": true
+    "resizable": true,
+    "always-on-top": true
   },
   "webkit": {
     "plugin": false

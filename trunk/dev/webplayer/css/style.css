@@ -1,7 +1,173 @@
 html{
 	-webkit-app-region: drag;
 	-webkit-user-select: none;
-	background: #000;
-	color: #FFF;
 	height: 100%;
+}
+
+.no-darg{
+	-webkit-app-region: no-drag;
+}
+
+* {
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border:0;
+    white-space: normal;
+    vertical-align: baseline;
+    
+}
+
+a {
+    background:none;
+    text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+body{
+    background:#F4F1EC;
+    font-size:13px;
+    color:#484848;
+    font-weight:normal;
+    line-height: 100%;
+}
+
+/*----------------------Font Face---------------------------*/
+
+@font-face {
+    font-family:"Digital-7 Mono";
+    src:url("../fonts/digital-7__mono_.eot?") format("eot"),
+    	url("../fonts/digital-7__mono_.woff") format("woff"),
+    	url("../fonts/digital-7__mono_.ttf") format("truetype"),
+    	url("../fonts/digital-7__mono_.svg#Digital-7Mono") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+
+/*---------------------------------------------------------------------------*/
+
+/*==== All style ====*/
+
+#player_box{
+    background: url("../img/player_wrapp.png") no-repeat scroll 0 0 / 100% auto transparent;
+    height: 140px;
+    position: relative;
+    width: 420px;
+}
+
+#player_box #top_panel{
+    height: 40px;
+    margin: 0 auto;
+    width: 380px;
+}
+
+#player_box #top_panel #volume{
+    float: left;
+    height: 100%;
+    width: 150px;
+}
+
+#player_box #top_panel #screen_btn{
+    float: right;
+    height: 100%;
+    width: 100px;
+}
+
+#player_box #top_panel #screen_btn a{
+    display: block;
+    float: left;
+    height: 20px;
+    margin: 10px 5px 10px 0;
+    width: 27px;
+}
+
+#player_box #top_panel #screen_btn #hide_btn{
+    background: url("../img/hide_btn.png") no-repeat scroll 0 0 transparent;
+}
+
+#player_box #top_panel #screen_btn #open_btn{
+    background: url("../img/open_btn.png") no-repeat scroll 0 0 transparent;
+}
+
+#player_box #top_panel #screen_btn #close_btn{
+    background: url("../img/close_btn.png") no-repeat scroll 0 0 transparent;
+}
+
+
+
+#player_box #progress_bar{
+    background: url("../img/progress_bar_bg.png") repeat-x scroll 0 0 transparent;
+    height: 58px;
+    margin: 0 auto;
+    width: 380px;
+}
+
+#player_box #progress_bar #time_btns{
+    float: left;
+    height: 100%;
+    width: 125px;
+}
+#player_box #progress_bar #time_btns #time{
+    color: #C5E2F7;
+    font-family: "Digital-7 Mono";
+    font-size: 35pt;
+    line-height: 0.7;
+    padding: 3px;
+    text-indent: 10px;
+}
+#player_box #progress_bar #time_btns #btns_wrapp{}
+
+#player_box #progress_bar #time_btns #btns_wrapp a{
+    color: #AABAC9;
+    font-family: arial;
+    font-size: 9pt;
+    font-weight: 600;
+    padding-left: 17px;
+    text-decoration: none;
+}
+
+#player_box #progress_bar #time_btns #btns_wrapp a.active,
+#player_box #progress_bar #time_btns #btns_wrapp a:hover{
+    color: #7C8B99;
+}
+
+
+#player_box #progress_bar #name_progress{
+    float: left;
+    height: 100%;
+    width: 255px;
+}
+
+#player_box #progress_bar #name_progress #name_wrapp{}
+
+#player_box #progress_bar #name_progress #name_wrapp .sep_left{
+    background: url("../img/sep_left.png") no-repeat scroll -7px 0 transparent;
+    float: left;
+    height: 33px;
+    margin-top: 1px;
+    width: 8px;
+}
+#player_box #progress_bar #name_progress #name_wrapp .sep_right{
+    background: url("../img/sep_right.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 33px;
+    margin-top: 1px;
+    width: 7px;
+}
+#player_box #progress_bar #name_progress #name_wrapp #name_block{
+    float: left;
+    margin: 5px;
+    overflow: hidden;
+    width: 228px;
+}
+#player_box #progress_bar #name_progress #name_wrapp span{
+    color: #AABAC9;
+    display: block;
+    font-family: arial;
+    font-size: 18px;
+    line-height: 1.3;
+    width: 500px;
 }
