@@ -17,24 +17,24 @@
 		win.minimize();
 	});
 
-	win.on('minimize', function() {
-		if(win !== null){
-			win = null;
-			// this.minimize(); // Hide window
-			this.hide();
+	// win.on('minimize', function() {
+	// 	if(win !== null){
+	// 		win = null;
+	// 		// this.minimize(); // Hide window
+	// 		this.hide();
 
-			tray = new gui.Tray({ icon: 'img/play.png' });
-		}
-		else{
-			tray.on('click', function() { // Show window and remove tray when clicked
-				win = gui.Window.get();
-				win.show();
-				win.restore();
+	// 		tray = new gui.Tray({ icon: 'img/play.png' });
+	// 	}
+	// 	else{
+	// 		tray.on('click', function() { // Show window and remove tray when clicked
+	// 			win = gui.Window.get();
+	// 			win.show();
+	// 			win.restore();
 
-				this.remove();
-				tray = null;
-			});
-		}
-	});
+	// 			this.remove();
+	// 			tray = null;
+	// 		});
+	// 	}
+	// });
 
 })();

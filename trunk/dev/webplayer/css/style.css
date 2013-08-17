@@ -50,7 +50,7 @@ html{
 #player_box{
     background: url("../img/player_wrapp.png") no-repeat scroll 0 0 / 100% auto transparent;
     height: 140px;
-    margin: 50px auto 25px;
+    /*margin: 50px auto 25px;*/
     position: relative;
     width: 420px;
 }
