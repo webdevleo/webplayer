@@ -1,7 +1,8 @@
 (function(){
 
 	var gui = require('nw.gui'), // Include GUI api
-		win = gui.Window.get(); // Get window object
+		win = gui.Window.get(), // Get window object
+		tray;
 	
 	// Get path to app
 	var path = require('path'),
@@ -11,25 +12,23 @@
 	** Minimize window to tray **
 	*****************************/
 	win.on('minimize', function() {
-		this.hide(); // Hide window
+		if(win !== null){
+			win = null;
+			// this.minimize(); // Hide window
+			this.hide();
 
-		var tray = new gui.Tray({ title: 'WebPlayer', icon: 'img/play.png' });
+			tray = new gui.Tray({ icon: 'img/play.png' });
+		}
+		else{
+			tray.on('click', function() { // Show window and remove tray when clicked
+				win = gui.Window.get();
+				win.show();
+				// win.restore();
 
-		// Give it a menu
-		var menu = new gui.Menu();
-		menu.append(new gui.MenuItem({
-			type: 'checkbox', label: 'Play/Pause',
-			type: 'checkbox', label: 'Stop',
-			type: 'checkbox', label: 'Close'
-		}));
-		tray.menu = menu;
-
-		// Show window and remove tray when clicked
-		tray.on('click', function() {
-			win.show();
-			this.remove();
-			tray = null;
-		});
+				this.remove();
+				tray = null;
+			});
+		}
 	});
 
 })();
