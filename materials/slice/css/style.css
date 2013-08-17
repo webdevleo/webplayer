@@ -54,8 +54,41 @@ body{
 
 #player_box #top_panel #volume{
     float: left;
-    height: 100%;
+    height: 20px;
+    margin-top: 10px;
     width: 150px;
+}
+
+#player_box #top_panel #volume #volume_ico{
+    background: url("../img/volume_icon.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 10px;
+    margin: 5px;
+    width: 11px;
+}
+#player_box #top_panel #volume #volume_panel {
+    background: url("../img/volume_panel_bg.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 17px;
+    margin: 5px;
+    width: 107px;
+}
+#player_box #top_panel #volume #volume_panel a{
+    background: url("../img/volume_point.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 6px;
+    margin: 2px;
+    width: 6px;
+}
+
+#player_box #top_panel #volume #volume_panel a:first-child{
+    margin-left: 5px;
+}
+
+#player_box #top_panel #volume #volume_panel a:hover,
+#player_box #top_panel #volume #volume_panel a.active{
+    background: url("../img/volume_point_active.png") no-repeat scroll 0 0 transparent;
 }
 
 #player_box #top_panel #screen_btn{
