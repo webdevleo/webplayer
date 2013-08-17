@@ -28,6 +28,7 @@ html{
 }
 
 .drag-overlay{
+    -webkit-app-region: drag;
     position: absolute;
     z-index: 1;
     height: 100%;
