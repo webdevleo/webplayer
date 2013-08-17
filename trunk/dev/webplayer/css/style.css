@@ -34,11 +34,13 @@ html{
     width:100%;
     top: 0;
     left: 0;
+    /*-webkit-app-region: drag;*/
 }
 
 .no-drag{
     position: relative;
     z-index: 10;
+    -webkit-app-region: no-drag;
 }
 
 /*----------------------Font Face---------------------------*/

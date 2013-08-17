@@ -1,4 +1,5 @@
 (function(){
+	window.resizeTo(420, 190); // Fix resize with tool bar
 
 	var gui = require('nw.gui'), // Include GUI api
 		win = gui.Window.get(), // Get window object
