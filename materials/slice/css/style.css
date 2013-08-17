@@ -24,6 +24,15 @@ body{
     font-weight:normal;
     line-height: 100%;
 }
+html{
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    height: 100%;
+}
+
+.no-darg{
+    -webkit-app-region: no-drag;
+}
 
 /*----------------------Font Face---------------------------*/
 
