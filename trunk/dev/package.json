@@ -1,0 +1,9 @@
+{
+  "name": "webplayer",
+  "main": "index.html",
+  "window": {
+    "width": 300,
+    // "height": 400,
+    "toolbar": false
+  }
+}
