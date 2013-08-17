@@ -1,0 +1,7 @@
+html{
+	-webkit-app-region: drag;
+	-webkit-user-select: none;
+	background: #000;
+	color: #FFF;
+	height: 100%;
+}
