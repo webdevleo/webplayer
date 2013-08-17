@@ -1,4 +1,21 @@
+html{
+    /*-webkit-app-region: drag;*/
+    -webkit-user-select: none;
+    height: 100%;
+}
 
+.drag-ovrlay{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.no-darg{
+    position: relative;
+    z-index: 10;
+}
 
 * {
     outline: 0;
@@ -9,7 +26,7 @@
     vertical-align: baseline;
     
 }
-à {
+a{
     background:none;
     text-decoration: none;
 }
@@ -23,15 +40,6 @@ body{
     color:#484848;
     font-weight:normal;
     line-height: 100%;
-}
-html{
-    -webkit-app-region: drag;
-    -webkit-user-select: none;
-    height: 100%;
-}
-
-.no-darg{
-    -webkit-app-region: no-drag;
 }
 
 /*----------------------Font Face---------------------------*/

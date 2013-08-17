@@ -10,31 +10,24 @@
 
 	$('js').on('click',function(e){ e.preventDefault(); }); // PreventDefault
 
-	/****************************
-	** Minimize window to tray **
-	*****************************/
-	$('#hide_btn').on('click', function(e){
-		win.minimize();
+	/*********************************
+	** Minimize and maximize window **
+	**********************************/
+	$('#hide_btn').on('click', function(){
+		win.hide();
+		tray = new gui.Tray({ icon: 'img/play.png' });
+
+		tray.on('click', function() { // Show window and remove tray when clicked
+			win.show();
+			win.focus();
+			this.remove();
+			tray = null;
+		});
 	});
 
-	// win.on('minimize', function() {
-	// 	if(win !== null){
-	// 		win = null;
-	// 		// this.minimize(); // Hide window
-	// 		this.hide();
-
-	// 		tray = new gui.Tray({ icon: 'img/play.png' });
-	// 	}
-	// 	else{
-	// 		tray.on('click', function() { // Show window and remove tray when clicked
-	// 			win = gui.Window.get();
-	// 			win.show();
-	// 			win.restore();
-
-	// 			this.remove();
-	// 			tray = null;
-	// 		});
-	// 	}
-	// });
+	/**********************
+	** Close Application **
+	***********************/
+	$('#close_btn').on('click',function(){ win.close();	});
 
 })();
