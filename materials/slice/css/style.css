@@ -36,7 +36,7 @@ body{
 
 /*---------------------------------------------------------------------------*/
 
-/*==== All style ====*/
+/*==== Player style ====*/
 
 #player_box{
     background: url("../img/player_wrapp.png") no-repeat scroll 0 0 / 100% auto transparent;
@@ -150,8 +150,7 @@ body{
     text-decoration: none;
 }
 
-#player_box #progress_bar #time_btns #btns_wrapp a.active,
-#player_box #progress_bar #time_btns #btns_wrapp a:hover{
+#player_box #progress_bar #time_btns #btns_wrapp a.active{
     color: #7C8B99;
 }
 
@@ -195,6 +194,63 @@ body{
 #player_box #progress_bar #name_progress #progress_line{}
 
 
-#player_box #buttons{
-
+#player_box #play_buttons{
+    height: 40px;
+    margin: 0 auto;
+    width: 380px;    
 }
+#player_box #play_buttons #left_btns_panel{
+    float: left;
+    height: 100%;
+    width: 37px;    
+}
+#player_box #play_buttons #left_btns_panel #rp_btn{}
+#player_box #play_buttons #left_btns_panel #sh_btn{}
+
+#player_box #play_buttons #play_btn_panel{
+    background: url("../img/play_btn_panel_bg.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 30px;
+    margin-top: 10px;
+    width: 306px;
+}
+#player_box #play_buttons #play_btn_panel a{
+    display: block;
+    float: left;
+    margin: 12px 10px 10px 34px;
+}
+#player_box #play_buttons #play_btn_panel #prev_btn{
+    background: url("../img/prev_btn.png") no-repeat scroll 0 0 transparent;
+    height: 10px;
+    width: 16px;
+}
+#player_box #play_buttons #play_btn_panel #pause_btn{
+    background: url("../img/pause_btn.png") no-repeat scroll 0 0 transparent;
+    height: 9px;
+    width: 8px;
+}
+#player_box #play_buttons #play_btn_panel #play_btn{
+    background: url("../img/play_btn.png") no-repeat scroll 0 0 transparent;
+    height: 16px;
+    margin-top: 9px;
+    width: 14px;      
+}
+#player_box #play_buttons #play_btn_panel #stop_btn{
+    background: url("../img/stop_btn.png") no-repeat scroll 0 0 transparent;
+    height: 9px;
+    width: 9px;      
+}
+#player_box #play_buttons #play_btn_panel #next_btn{
+    background: url("../img/next_btn.png") no-repeat scroll 0 0 transparent;
+    height: 10px;
+    width: 16px;      
+}
+
+#player_box #play_buttons #right_btns_panel{
+    float: left;
+    height: 100%;
+    width: 37px;  
+}
+
+#player_box #play_buttons #right_btns_panel #eq_btn{}
+#player_box #play_buttons #right_btns_panel #pl_btn{}
