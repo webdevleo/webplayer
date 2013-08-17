@@ -343,12 +343,14 @@ html{
 }
 
 #playlist_box #playlist_panel{
-    height: 390px;
+    height: 380px;
     margin: 0 auto;
-    padding-top: 5px;
-    width: 380px;
-    overflow: hidden;
+    overflow-x: hidden;
     overflow-y: scroll;
+    padding-top: 5px;
+    position: relative;
+    top: 7px;
+    width: 380px;
 }
 
 #playlist_box #playlist_panel li{
