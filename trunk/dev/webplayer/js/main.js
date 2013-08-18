@@ -1,8 +1,14 @@
 var files = new Array(),
 	currentTrack = 0,
-	player = null;
+	player = null,
+	shuffle = false,
+	repeat = true;
 
 (function(){
+
+	$('#rp_btn').on('click', function(){
+		
+	});
 	
 	$('.no-drag').on('mouseover', function(){
 		$('html').removeClass('draggable');
@@ -253,7 +259,6 @@ var continuePlaying = function continuePlayingF(index){
 		if(currentTime.m == 0 && currentTime.s == 0){
 			index = ($('.column').length === index+1) ? 0 : index + 1;
 			playTrack(index);
-			console.log('test');
 		}
 	});
 }

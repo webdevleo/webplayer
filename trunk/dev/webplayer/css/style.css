@@ -174,16 +174,16 @@ html{
 #player_box #progress_bar #time_btns #btns_wrapp{}
 
 #player_box #progress_bar #time_btns #btns_wrapp a{
-    color: #AABAC9;
     font-family: arial;
     font-size: 8pt;
     font-weight: 600;
     padding-left: 10px;
     text-decoration: none;
+    color: #7C8B99;
 }
 
 #player_box #progress_bar #time_btns #btns_wrapp a.active{
-    color: #7C8B99;
+    color: #AABAC9;
 }
 
 #player_box #progress_bar #name_progress{
