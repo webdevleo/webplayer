@@ -43,8 +43,6 @@ $(document).ready(function() {
 		evt.stopPropagation();
 		evt.preventDefault();
 		evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-
-		alert('jhfjfjghf');
 	}
 
 	// Setup the dnd listeners.
