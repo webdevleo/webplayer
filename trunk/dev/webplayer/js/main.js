@@ -256,7 +256,7 @@ var continuePlaying = function continuePlayingF(index){
 			(currentTime.s < 10 ? '0'+ currentTime.s : currentTime.s)
 		);
 
-		// TODO Check for Shuffle
+		// TODO Shuffle
 		if(currentTime.m == 0 && currentTime.s == 0){
 			if (!repeat) index = ($('.column').length === index+1) ? 0 : index + 1;
 			playTrack(index);
