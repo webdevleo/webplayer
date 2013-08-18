@@ -131,6 +131,18 @@ $(document).ready(function() {
 		$('#add_box').show();
 	window_size();
 
+	$('#volume_panel a').click(function(event) {
+		var listItem = this;
+		var volume = $('#volume_panel a').index(listItem)+1;
+		$('#volume_panel a').removeClass("active");
+		$( "#volume_panel a" ).each(function ( index, domEle) {
+			$( domEle ).addClass( "active" );
+			if ( $(this).is( ".volume_point_"+volume ) ) {
+				return false;
+			}
+		});
+	});
+
 	function window_size(){
 		var height = 135;
 		if($('#add_box').is(':visible'))
