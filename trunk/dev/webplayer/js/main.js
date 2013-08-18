@@ -101,58 +101,52 @@
 
 $(document).ready(function() {
 
+	if(localStorage.getItem("playlist_box"))
+		$('#playlist_box').show();
+	if(localStorage.getItem("add_box"))
+		$('#add_box').show();
+	window_size();
+
+	function window_size(){
+		var height = 135;
+		if($('#add_box').is(':visible'))
+			height += 135;
+		if($('#playlist_box').is(':visible'))
+			height += 400;
+		window.resizeTo( 420, height);
+	}
+
 	$('#pl_btn').click(function(event) {
 		if ( $("#playlist_box").hasClass("active") ) {
 			$('#playlist_box').hide();
 			$('#playlist_box').removeClass('active');
+			localStorage.setItem("playlist_box", false);
 		}else{
 			$('#playlist_box').show();
 			$('#playlist_box').addClass('active');
-		}	
+			localStorage.setItem("playlist_box", true);
+		}
+		window_size();
+		// console.log(localStorage.getItem("playlist_box"));	
     });
 
 	$('#add_btn').click(function(event) {
 		if ( $("#add_box").hasClass("active") ) {
 			$('#add_box').hide();
 			$('#add_box').removeClass('active');
+			localStorage.setItem("add_box", false);
 		}else{
 			$('#add_box').show();
 			$('#add_box').addClass('active');
+			localStorage.setItem("add_box", true);
 		}	
+		window_size();
+		// console.log(localStorage.getItem("add_box"));	
     });
 
-	function handleFileSelect(evt) {
-		evt.stopPropagation();
-		evt.preventDefault();
 
-		var files = evt.dataTransfer.files; // FileList object.
-
-		// files is a FileList of File objects. List some properties.
-		var output = [];
-		for (var i = 0, f; f = files[i]; i++) {
-		  output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-		              f.size, ' bytes, last modified: ',
-		              f.lastModifiedDate.toLocaleDateString(), '</li>');
-		}
-
-		document.getElementById('playlist_panel').innerHTML = output.join('');
-	}
-
-	function handleDragOver(evt) {
-		alert('jhfjfjghf');
-		evt.stopPropagation();
-		evt.preventDefault();
-		evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-	}
-
-	// Setup the dnd listeners.
-	var dropZone = document.getElementById('playlist_box');
-	dropZone.addEventListener('dragover', handleDragOver, false);
-	dropZone.addEventListener('dragenter', handleDragEnter, false)
-	dropZone.addEventListener('drop', handleFileSelect, false);
 
 	var dragSrcEl = null;
-
 	var cols = document.querySelectorAll('#playlist_panel .column');
 	[].forEach.call(cols, function(col) {
 	  col.addEventListener('dragstart', handleDragStart, false);
@@ -166,14 +160,11 @@ $(document).ready(function() {
 	function handleDragStart(e) {
 	  // Target (this) element is the source node.
 	  dragSrcEl = this;
-
 	  e.dataTransfer.effectAllowed = 'move';
 	  e.dataTransfer.setData('text/html', this.innerHTML);
 	}
 
-	function handleDragEnter(e) {
-
-	}
+	function handleDragEnter(e) { }
 
 	function handleDragOver(e) {
 	  if (e.preventDefault) {
@@ -183,9 +174,7 @@ $(document).ready(function() {
 	  return false;
 	}
 
-	function handleDragLeave(e) {
-
-	}
+	function handleDragLeave(e) { }
 
 	function handleDrop(e) {
 	  if (e.stopPropagation) {
@@ -194,18 +183,14 @@ $(document).ready(function() {
 
 	  // Don't do anything if dropping the same column we're dragging.
 	  if (dragSrcEl != this) {
-
 	    // Set the source column's HTML to the HTML of the columnwe dropped on.
 	    dragSrcEl.innerHTML = this.innerHTML;
 	    this.innerHTML = e.dataTransfer.getData('text/html');
-
 	  }
 	  return false;
 	}
 
-	function handleDragEnd(e) {
-
-	}
+	function handleDragEnd(e) {	}
 
 	var cols = document.querySelectorAll('#playlist_panel .column');
 	[].forEach.call(cols, function(col) {
