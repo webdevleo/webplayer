@@ -10,6 +10,11 @@ var files = new Array(),
 		$($('#btns_wrapp a')[0]).toggleClass('active');
 		repeat = repeat ? false : true;
 	});
+
+	$('#sh_btn').on('click', function(){
+		$($('#btns_wrapp a')[1]).toggleClass('active');
+		shuffle = shuffle ? false : true;
+	});
 	
 	$('.no-drag').on('mouseover', function(){
 		$('html').removeClass('draggable');
@@ -86,37 +91,8 @@ var files = new Array(),
 	        }
 	        recurs();
 
-	   //      for (var i = 0; i <= files.length - 1; i++) {
-	   //      	asset = AV.Asset.fromFile(files[i]);
-	        	
-	   //      	var time = '--:--',
-	   //      		title = 'Unknown track';
-
-				// asset.get('duration', function(duration) {});
-
-		  //       asset.on('metadata', function(data) {
-		  //       	title = data.title || title;
-
-		  //           var track = '<div onclick="playTrackSingle(this);" data-title="'+title+'" class="column no-drag">'+
-		  //           				'<div class="track_number"></div>'+
-		  //           				'<div class="track_name"><span>'+title+'</span></div>'+
-		  //           				'<div class="track_time">'+time+'</div>'+
-		  //           			'</div>';
-		            			
-		  //   		$('#playlist_panel').append(track);
-		  //       });
-	   //      };
-
 	        player = AV.Player.fromFile(files[0]);
 	        player.on('error', function(e) { throw e });
-
-	        // player.on('metadata', function(data) {
-	        //     console.log(data);
-	        // });
-
-			// player.on('progress', function(percent) {
-			//     console.log(percent);
-			// });
     	}
     }
 
@@ -220,6 +196,8 @@ $(document).ready(function() {
 });
 
 var playTrack = function playTrackF(index){
+	if(shuffle) index = randomMiniMax(0, files.length -1);
+
 	$(".column").removeClass('checked');
 	$($('.column')[index]).addClass('checked');
 	player.stop();
@@ -256,9 +234,10 @@ var continuePlaying = function continuePlayingF(index){
 			(currentTime.s < 10 ? '0'+ currentTime.s : currentTime.s)
 		);
 
-		// TODO Shuffle
 		if(currentTime.m == 0 && currentTime.s == 0){
 			if (!repeat) index = ($('.column').length === index+1) ? 0 : index + 1;
+			if(shuffle) index = randomMiniMax(0, files.length -1);
+
 			playTrack(index);
 		}
 	});
@@ -269,7 +248,7 @@ var playTrackSingle = function playTrackSingleF(_this){
 	playTrack(index);
 }
 
-function convertMS(ms) {
+var convertMS = function convertMSF(ms) {
 	var d, h, m, s;
 	s = Math.floor(ms / 1000);
 	m = Math.floor(s / 60);
@@ -280,3 +259,8 @@ function convertMS(ms) {
 	h = h % 24;
 	return { d: d, h: h, m: m, s: s };
 };
+
+var randomMiniMax = function randomMiniMax(min, max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}

@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "window": {
     "title": "WebPlayer",
-    "toolbar": true,
+    "toolbar": false,
     "frame": false,
     "width": 420,
     "height": 580,
