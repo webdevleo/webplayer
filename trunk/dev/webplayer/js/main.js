@@ -56,7 +56,9 @@
     	if (player) player.play();
     });
 
-    $('#pause_btn').on('click', function(e){ if (player) player.pause(); });
+    $('#pause_btn').on('click', function(e){
+    	player.pause();
+    });
 
     $('#stop_btn').on('click', function(e){
     	if (player){
