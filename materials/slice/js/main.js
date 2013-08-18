@@ -1,18 +1,43 @@
 $(document).ready(function() {
 
-	window_size
-
 	function window_size(){
 		var playlist_box = localStorage.getItem("playlist_box");
 		var add_box = localStorage.getItem("add_box");
-		if( add_box = true && playlist_box  == true  ){
-			window.resizeTo( 420,670 )
+
+		console.log(playlist_box);
+		console.log(add_box);
+
+		if( add_box == 'true' && playlist_box  == 'true'  ){
+			// window.resizeTo( 420,670 )
+			$('#add_box').show();
+			$('#add_box').addClass('active');
+			$('#playlist_box').show();
+			$('#playlist_box').addClass('active');
+			console.log('all true');
 		}
-		if( add_box = true && playlist_box  == false  ){
-			window.resizeTo( 420,270 )
+		if( add_box == 'true' && playlist_box  == 'false'  ){
+			// window.resizeTo( 420,270 )
+			$('#add_box').show();
+			$('#add_box').addClass('active');
+			$('#playlist_box').hide();
+			$('#playlist_box').removeClass('active');
+			console.log('true false');
 		}
-		if( add_box = true && playlist_box  == false  ){
-			window.resizeTo( 420,535 )
+		if( add_box == 'false' && playlist_box  == 'true'  ){
+			// window.resizeTo( 420,535 )
+			$('#add_box').hide();
+			$('#add_box').removeClass('active');
+			$('#playlist_box').show();
+			$('#playlist_box').addClass('active');
+			console.log('false true');
+		}
+		if( add_box == 'false' && playlist_box  == 'false'  ){
+			// window.resizeTo( 420,135 )
+			$('#add_box').hide();
+			$('#add_box').removeClass('active');
+			$('#playlist_box').hide();
+			$('#playlist_box').removeClass('active');
+			console.log('all false');
 		}
 	}
 
@@ -26,7 +51,7 @@ $(document).ready(function() {
 			$('#playlist_box').addClass('active');
 			localStorage.setItem("playlist_box", true);
 		}
-		window_size
+		window_size();
 		// console.log(localStorage.getItem("playlist_box"));	
     });
 
@@ -40,11 +65,11 @@ $(document).ready(function() {
 			$('#add_box').addClass('active');
 			localStorage.setItem("add_box", true);
 		}	
-		window_size
+		window_size();
 		// console.log(localStorage.getItem("add_box"));	
     });
 
-
+	window_size();
 
 	var dragSrcEl = null;
 	var cols = document.querySelectorAll('#playlist_panel .column');
