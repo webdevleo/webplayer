@@ -1,5 +1,17 @@
 $(document).ready(function() {
 
+	$('#volume_panel a').click(function(event) {
+		var listItem = this;
+		var volume = $('#volume_panel a').index(listItem)+1;
+		$('#volume_panel a').removeClass("active");
+		$( "#volume_panel a" ).each(function ( index, domEle) {
+			$( domEle ).addClass( "active" );
+			if ( $(this).is( ".volume_point_"+volume ) ) {
+				return false;
+			}
+		});
+	});
+
 	window_size();
 
 	function window_size(){
