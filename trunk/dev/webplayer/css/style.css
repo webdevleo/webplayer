@@ -28,7 +28,6 @@ html{
 }
 
 .drag-overlay{
-    /*-webkit-app-region: drag;*/
     position: absolute;
     z-index: 1;
     height: 100%;
@@ -37,7 +36,12 @@ html{
     left: 0;
 }
 
+.draggable{
+    -webkit-app-region: drag;
+}
+
 .no-drag{
+    -webkit-app-region: no-drag;
     position: relative;
     z-index: 10;
 }
@@ -59,7 +63,7 @@ html{
 #player_box{
     background: url("../img/player_wrapp.png") no-repeat scroll 0 0 / 100% auto transparent;
     height: 135px;
-    /*margin: 30px auto 0;*/
+    margin: 0 auto;
     position: relative;
     width: 420px;
 }
@@ -68,6 +72,7 @@ html{
     height: 36px;
     margin: 0 auto;
     width: 380px;
+    position: relative;
 }
 
 #player_box #top_panel #volume{
@@ -109,6 +114,13 @@ html{
 #player_box #top_panel #volume #volume_panel a:hover,
 #player_box #top_panel #volume #volume_panel a.active{
     background: url("../img/volume_point_active.png") no-repeat scroll 0 0 transparent;
+}
+
+#top_drag{
+    height: 35px;
+    left: 140px;
+    top: 0;
+    width: 175px;
 }
 
 #player_box #top_panel #screen_btn{
@@ -370,6 +382,22 @@ html{
     float: left;
     margin-left: 1px;
     cursor: pointer;
+    position: relative;
+    counter-increment: list;
+}
+
+#playlist_box #playlist_panel .column:before{
+    color: #C5E2F7;
+    display: block;
+    font-family: "Digital-7 Mono";
+    font-size: 12pt;
+    padding: 5px;
+    text-align: center;
+    width: 25px;
+    content: counter(list);
+    position: absolute;
+    left: 0;
+    top: -3px;
 }
 
 .column.over {
@@ -389,6 +417,7 @@ html{
     padding: 5px;
     text-align: center;
     width: 25px;
+
 }
 
 #playlist_box #playlist_panel .column .track_name{

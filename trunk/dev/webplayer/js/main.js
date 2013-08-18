@@ -1,5 +1,10 @@
 (function(){
-	// window.resizeTo(420, 300); // Fix resize with tool bar
+	
+	$('.no-drag').on('mouseover', function(){
+		$('html').removeClass('draggable');
+	}).on('mouseout', function(){
+		$('html').addClass('draggable');
+	});
 
 	var gui = require('nw.gui'), // Include GUI api
 		win = gui.Window.get(), // Get window object
@@ -40,25 +45,45 @@
 
     document.querySelector("input").onchange = function(e) {
     	files = e.target.files;
-        if (player) player.stop();
+    	if(files.length){
+    		$('#playlist_panel > *').remove();
+	        if (player) player.stop();
 
-        var playerData;
-        for (var i = files.length - 1; i >= 0; i--) {
-        	// console.log(files[i]);
-        	playerData = AV.Player.fromFile(files[i]);
-        	playerData.preload();
-	        playerData.on('metadata', function(data) {
-	            console.log(data);
-	        });
-        };
+	        for (var i = 0; i <= files.length - 1; i++) {
+	        	asset = AV.Asset.fromFile(files[i]);
+	        	
+	        	var time = '00:00',
+	        		title = 'Unknown track';
 
-        player = AV.Player.fromFile(files[0]);
-        player.on('error', function(e) { throw e });
-        
-        player.on('metadata', function(data) {
-            console.log(data);
-        });
+				asset.get('duration', function(duration) {
+					seconds = ~~(duration / 1000);
+					minutes = ~~(seconds / 60);
 
+					if(minutes.length < 2) minutes = '0' + minutes;
+					time = minutes + ':' + seconds.toString().substring(0, 2);
+				});
+
+		        asset.on('metadata', function(data) {
+		        	title = data.title;
+		            var track = '<div class="column no-drag">'+
+		            				'<div class="track_number"></div>'+
+		            				'<div class="track_name"><span>'+title+'</span></div>'+
+		            				'<div class="track_time">'+time+'</div>'+
+		            			'</div>';
+		            			
+		    		$('#playlist_panel').append(track);
+		        });
+
+
+	        };
+
+	        player = AV.Player.fromFile(files[0]);
+	        player.on('error', function(e) { throw e });
+
+	        // player.on('metadata', function(data) {
+	        //     console.log(data);
+	        // });
+    	}
     }
 
     $('#play_btn').on('click', function(e){
@@ -97,7 +122,6 @@
     });
 
 })();
-
 
 $(document).ready(function() {
 
