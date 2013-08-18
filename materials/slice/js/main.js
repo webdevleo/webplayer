@@ -26,6 +26,7 @@ $(document).ready(function() {
 			$('#playlist_box').addClass('active');
 			localStorage.setItem("playlist_box", true);
 		}
+		window_size
 		// console.log(localStorage.getItem("playlist_box"));	
     });
 
@@ -39,6 +40,7 @@ $(document).ready(function() {
 			$('#add_box').addClass('active');
 			localStorage.setItem("add_box", true);
 		}	
+		window_size
 		// console.log(localStorage.getItem("add_box"));	
     });
 
