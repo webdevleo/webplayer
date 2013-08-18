@@ -2,12 +2,13 @@ var files = new Array(),
 	currentTrack = 0,
 	player = null,
 	shuffle = false,
-	repeat = true;
+	repeat = false;
 
 (function(){
 
 	$('#rp_btn').on('click', function(){
-		
+		$($('#btns_wrapp a')[0]).toggleClass('active');
+		repeat = repeat ? false : true;
 	});
 	
 	$('.no-drag').on('mouseover', function(){
@@ -255,9 +256,9 @@ var continuePlaying = function continuePlayingF(index){
 			(currentTime.s < 10 ? '0'+ currentTime.s : currentTime.s)
 		);
 
-		// TODO Check for Shuffle & Repeat
+		// TODO Check for Shuffle
 		if(currentTime.m == 0 && currentTime.s == 0){
-			index = ($('.column').length === index+1) ? 0 : index + 1;
+			if (!repeat) index = ($('.column').length === index+1) ? 0 : index + 1;
 			playTrack(index);
 		}
 	});
