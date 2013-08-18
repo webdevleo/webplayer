@@ -220,7 +220,7 @@ var continuePlaying = function continuePlayingF(index){
 		);
 
 		// TODO Check for Shuffle & Repeat
-		if(currentTime.m == 0 && currentTime.s == 1){
+		if(currentTime.m == 0 && currentTime.s == 0){
 			index = ($('.column').length === index+1) ? 0 : index + 1;
 			playTrack(index);
 			console.log('test');
