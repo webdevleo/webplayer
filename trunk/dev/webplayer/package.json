@@ -5,15 +5,15 @@
   "version": "0.1.0",
   "window": {
     "title": "WebPlayer",
-    "toolbar": true,
-    "frame": true,
+    "toolbar": false,
+    "frame": false,
     "width": 420,
     "height": 580,
     "position": "center",
     "min_width": 420,
     "min_height": 140,
     "max_width": 420,
-    "max_height": 600,
+    "max_height": 670,
     "resizable": true,
     "always-on-top": true
   },
