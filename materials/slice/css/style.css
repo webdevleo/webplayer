@@ -59,7 +59,7 @@ html{
 #player_box{
     background: url("../img/player_wrapp.png") no-repeat scroll 0 0 / 100% auto transparent;
     height: 135px;
-    margin: 30px auto 0;
+    margin: 0 auto;
     position: relative;
     width: 420px;
 }
@@ -68,6 +68,7 @@ html{
     height: 36px;
     margin: 0 auto;
     width: 380px;
+    position: relative;
 }
 
 #player_box #top_panel #volume{
@@ -109,6 +110,13 @@ html{
 #player_box #top_panel #volume #volume_panel a:hover,
 #player_box #top_panel #volume #volume_panel a.active{
     background: url("../img/volume_point_active.png") no-repeat scroll 0 0 transparent;
+}
+
+#top_drag{
+    height: 35px;
+    left: 140px;
+    top: 0;
+    width: 175px;
 }
 
 #player_box #top_panel #screen_btn{

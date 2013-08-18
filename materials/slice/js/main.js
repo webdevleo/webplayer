@@ -21,38 +21,6 @@ $(document).ready(function() {
 		}	
     });
 
-	function handleFileSelect(evt) {
-		evt.stopPropagation();
-		evt.preventDefault();
-
-		var files = evt.dataTransfer.files; // FileList object.
-
-		// files is a FileList of File objects. List some properties.
-		var output = [];
-		for (var i = 0, f; f = files[i]; i++) {
-		  output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-		              f.size, ' bytes, last modified: ',
-		              f.lastModifiedDate.toLocaleDateString(), '</li>');
-		}
-
-		document.getElementById('playlist_panel').innerHTML = output.join('');
-	}
-
-	function handleDragOver(evt) {
-		alert('jhfjfjghf');
-		evt.stopPropagation();
-		evt.preventDefault();
-		evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-
-		alert('jhfjfjghf');
-	}
-
-	// Setup the dnd listeners.
-	var dropZone = document.getElementById('playlist_box');
-	dropZone.addEventListener('dragover', handleDragOver, false);
-	dropZone.addEventListener('dragenter', handleDragEnter, false)
-	dropZone.addEventListener('drop', handleFileSelect, false);
-
 	var dragSrcEl = null;
 
 	var cols = document.querySelectorAll('#playlist_panel .column');
