@@ -34,18 +34,49 @@
 	/******************************
 	** Main Player Functionality **
 	*******************************/
+	var files = new Array(),
+		currentTrack = 0,
+		player = null;
 
-	// var fs = require('fs');
-	// var file = fs.readFile("/www/multimedia/music/Sting - Discografi [ studiinie albomi 1985 - 2010 ]/2010  Symphonicities/02.Englishman In New York.mp3", function(err, data) {
-	// 	if (err) throw err;
+    document.querySelector("input").onchange = function(e) {
+    	files = e.target.files;
+        if (player) player.stop();
 
-	// 	console.log(data);
-	// });
+        player = AV.Player.fromFile(files[0]);
+        player.on('error', function(e) { throw e });
+        
+        player.on('metadata', function(data) {
+            console.log(data);
+            this.play();
+        });
 
-	// var file = readFile("/www/multimedia/music/Sting - Discografi [ studiinie albomi 1985 - 2010 ]/2010  Symphonicities/02.Englishman In New York.mp3");
-	// var player = AV.Player.fromURL("/www/multimedia/music/Sting - Discografi [ studiinie albomi 1985 - 2010 ]/2010  Symphonicities/02.Englishman In New York.mp3");
-	console.log(player);
-	// var player = AV.Player.fromFile(data);
-	player.play();
+    }
+
+    $('#play_btn').on('click', function(e){
+    	if (player) player.play();
+    });
+
+    $('#pause_btn').on('click', function(e){ if (player) player.pause(); });
+
+    $('#stop_btn').on('click', function(e){
+    	if (player){
+    		player.pause();
+    		player.currentTime(0);
+    	}
+    });
+
+    $('#prev_btn').on('click', function(e){
+    	if (player){
+    		if(currentTrack) currentTrack--;
+    		player = AV.Player.fromFile(files[currentTrack]);
+    	}
+    });
+
+    $('#next_btn').on('click', function(e){
+    	if (player){
+    		if(currentTrack < files.length) currentTrack++;
+    		player = AV.Player.fromFile(files[currentTrack]);
+    	}
+    });
 
 })();
