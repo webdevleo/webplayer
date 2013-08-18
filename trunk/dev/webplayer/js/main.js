@@ -1,8 +1,14 @@
 var files = new Array(),
 	currentTrack = 0,
-	player = null;
+	player = null,
+	shuffle = false,
+	repeat = true;
 
 (function(){
+
+	$('#rp_btn').on('click', function(){
+		
+	});
 	
 	$('.no-drag').on('mouseover', function(){
 		$('html').removeClass('draggable');
@@ -49,26 +55,56 @@ var files = new Array(),
     		$('#playlist_panel > *').remove();
 	        if (player) player.stop();
 
-	        for (var i = 0; i <= files.length - 1; i++) {
-	        	asset = AV.Asset.fromFile(files[i]);
+	        var i = 0;
+	        var recurs = function recursF(){
+				window.setTimeout(function(){
+		        	asset = AV.Asset.fromFile(files[i]);
+		        	
+		        	var time = '--:--',
+		        		title = 'Unknown track';
+
+					asset.get('duration', function(duration) {});
+
+			        asset.on('metadata', function(data) {
+			        	title = data.title || title;
+
+			            var track = '<div onclick="playTrackSingle(this);" data-title="'+title+'" class="column no-drag">'+
+			            				'<div class="track_number"></div>'+
+			            				'<div class="track_name"><span>'+title+'</span></div>'+
+			            				'<div class="track_time">'+time+'</div>'+
+			            			'</div>';
+			            			
+			    		$('#playlist_panel').append(track);
+			        });
+
+					if(i <= files.length){
+						recurs();
+						i++;
+					}
+		        }, 1);
+	        }
+	        recurs();
+
+	   //      for (var i = 0; i <= files.length - 1; i++) {
+	   //      	asset = AV.Asset.fromFile(files[i]);
 	        	
-	        	var time = '--:--',
-	        		title = 'Unknown track';
+	   //      	var time = '--:--',
+	   //      		title = 'Unknown track';
 
-				asset.get('duration', function(duration) {});
+				// asset.get('duration', function(duration) {});
 
-		        asset.on('metadata', function(data) {
-		        	title = data.title || title;
+		  //       asset.on('metadata', function(data) {
+		  //       	title = data.title || title;
 
-		            var track = '<div onclick="playTrackSingle(this);" data-title="'+title+'" class="column no-drag">'+
-		            				'<div class="track_number"></div>'+
-		            				'<div class="track_name"><span>'+title+'</span></div>'+
-		            				'<div class="track_time">'+time+'</div>'+
-		            			'</div>';
+		  //           var track = '<div onclick="playTrackSingle(this);" data-title="'+title+'" class="column no-drag">'+
+		  //           				'<div class="track_number"></div>'+
+		  //           				'<div class="track_name"><span>'+title+'</span></div>'+
+		  //           				'<div class="track_time">'+time+'</div>'+
+		  //           			'</div>';
 		            			
-		    		$('#playlist_panel').append(track);
-		        });
-	        };
+		  //   		$('#playlist_panel').append(track);
+		  //       });
+	   //      };
 
 	        player = AV.Player.fromFile(files[0]);
 	        player.on('error', function(e) { throw e });
@@ -223,7 +259,6 @@ var continuePlaying = function continuePlayingF(index){
 		if(currentTime.m == 0 && currentTime.s == 1){
 			index = ($('.column').length === index+1) ? 0 : index + 1;
 			playTrack(index);
-			console.log('test');
 		}
 	});
 }
